@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block toast %}
+
+{% if user.is_authenticated %}
+
+{% else%}
+<p style="padding-left:30px;">Please Login First, to find out more</p>
+
+{% endif %}
+
+
+{% endblock %}
+
+{% block body %}
+
+{% if all_laptops %}
+<div class="container" >
+    <div class="row text-center" style="padding-top: 10px">
+
+        {% for laptops in all_laptops %}
+
+
+        <div class="col-lg-3 col-md-6 mb-4" style="padding-top: 10px">
+            <div class="card" style="border: 3px solid blue">
+                <img class="card-img-top" style="padding:5px; border-bottom: 1px solid blue;" src="{{laptops.image_link}}" alt="{{ laptops.model_name }}">
+                <div class="card-body">
+                  <h4 class="card-title" style="text-align:center;">{{ laptops.company  }} {{ laptops.model_name }}</h4>
+                  <p class="card-text" style="text-align:center;">{{ laptops.description }}</p>
+                </div>
+                <div class="card-footer" style="text-align:center;">
+                {% if user.is_authenticated %}
+
+                  <a href="/etrx/laptops/{{ laptops.id }}/" class="btn btn-primary">Find Out More!</a>
+                {% else %}
+
+                  <a href="" class="btn btn-primary">Find Out More!</a>
+                    {% endif %}
+
+            </div>
+        </div>
+
+        </div>
+<!--
+        <div class="col-mid-3" style="padding:20px; border: 1px solid; ">
+
+            <div>
+                <img class="img-responsive" src="{{laptops.image_link}}"  alt="{{ laptops.model_name }}" >
+            </div>
+            <div style="padding-top: 20px; align:center;">
+                <a href="/etrx/{{ laptops.id }}/">{{ laptops.model_name }}</a>
+            </div>
+
+        </div>
+-->
+        {% endfor %}
+
+    </div>
+
+</div>
+{% endif %}
+
+{% endblock %}
+
+

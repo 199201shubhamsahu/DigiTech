@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<div class="container">
+  <div class="row justify-content-md-center">
+          <div class="col-md-6" style="padding-top: 10px;">
+              <div class="card" style="padding: 10px 10px 10px 10px; background-color: #69c3e0; border: 3px solid blue">
+
+                <h3>Sign up</h3>
+                  <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn-primary btn" type="submit">Sign up</button>
+                  </form>
+
+              </div>
+          </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

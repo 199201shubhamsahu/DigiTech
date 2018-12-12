@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="row">
+<!--    <div class="col-mid-4">
+        <img src="{{ laptop.image_link }}" style="max-height: 600px; width:auto";/>
+    </div>
+    <div class="col-mid-8">
+        <h1>{{ laptop.company }}</h1>
+        <h2>{{ laptop.model_name }}</h2>
+        <p>{{ laptop.description }}</p>
+        <p>{{ laptop.cost }}</p>
+    </div>
+-->
+
+        <div class="col-lg-5 col-md-6 mb-4" style="padding-top: 10px">
+            <div class="card">
+                <img class="card-img-top" style="padding:20px; border: 3px solid blue" src="{{laptop.image_link}}" alt="{{ laptop.model_name }}">
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-6 mb-4" style="padding-top: 10px;">
+            <div class="card" style="border: 3px solid blue">
+                <h1 style="padding-left:20px; padding-top:10px;">{{ laptop.company }} </h1>
+                <h2 style="padding-left: 20px">{{ laptop.model_name }}</h2>
+                <ul>
+                    <li>{{ laptop.description }}</li>
+                    <li>Rs. {{ laptop.cost }}</li>
+                    <li>{{ laptop.ram }}</li>
+                    <li>{{ laptop.storage }}</li>
+                    <li>{{ laptop.weight}}</li>
+                    <li>{{ laptop.screen_size}}</li>
+
+                    <form action="{% url 'success' laptop.lap_id%}" method="post">
+                        {% csrf_token %}
+                        Qty: <input type="text" name="qty" value="1">
+                        <button
+                        type="submit"
+                        class="btn-primary btn"
+                        value="{{ item.id }}"
+                        name="attend">Buy
+                        </button>
+                    </form>
+                </ul>
+            </div>
+        </div>
+</div>
+
+
+
+{% endblock %}

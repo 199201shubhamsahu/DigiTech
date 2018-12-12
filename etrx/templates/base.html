@@ -1,0 +1,45 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+    <title>DigiTech</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+{% block head %}
+{% endblock %}
+</head>
+
+<body style="background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/itCjTBE/light-blue-tech-geometric-polygonal-motion-background-video-corporate-animation-hd-1920x1080_nde0ffkig__F0000.png')">
+
+<nav class="navbar navbar-inverse" style="color:#003366;" >
+    <div class="container-fluid" style="border-bottom: 3px solid blue;">
+        <div class="navbar-header">
+            <a class="navbar-brand col-md-4" style="font-size:30px; color:#003366;" href="{% url 'index' %}">
+                DigiTech
+            </a>
+            <a class="navbar-brand col-md-2" style="color:#003366;" href="{% url 'index' %}">Product</a>
+            <a class="navbar-brand col-md-2" style="color:#003366;" href="{% url 'contact_page' %}">Contact</a>
+        </div>
+        <ul class="nav navbar-header">
+            {% if user.is_authenticated %}
+            <li><a class="navbar-brand col-md-1" style="color:#003366;"href="">Hi {{user.username}}!</a></li>
+            &nbsp;&nbsp;
+            <li><a class="navbar-brand col-md-1" style="color:#003366;"href="{% url 'logout' %}"> Logout </a></li>
+            {% else %}
+            <li><a class="navbar-brand col-md-1" style="color:#003366;"href="{% url 'signup' %}">Register</a></li>
+            &nbsp;&nbsp;
+            <li><a class="navbar-brand col-md-1" style="color:#003366;"href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </div><!--/.container-fluid -->
+</nav>
+
+{% block toast %}
+{% endblock %}
+
+
+{% block body %}
+{% endblock %}
+
+</body>
+</html>
+

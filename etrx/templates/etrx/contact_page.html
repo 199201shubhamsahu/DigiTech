@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<div class="container">
+  <div class="row justify-content-md-center">
+          <div class="col-md-6" style="padding-top: 10px;">
+              <div class="card" style="padding: 10px 10px 10px 10px; background-color: #69c3e0; border: 3px solid blue">
+                  <form action="/etrx/contact_thanks/" method="post">
+                    {% csrf_token %}
+                     Contact Name: <input    type="text" name="name" value="Your Name">
+                    <br><br>
+                    Contact Email: <input type="text" name="email" value="email@domain.com">
+                    <br><br>
+                    Your Message: <textarea rows="4" cols="50" name="query" >I wanted to know....</textarea>
+                    <br><br>
+                    <button class="btn-primary btn" type="submit">Submit</button>
+                    <!--<ul>-->
+                        <!--{{form.as_ul}}-->
+                    <!--</ul>-->
+                  </form>
+
+              </div>
+          </div>
+
+  </div>
+
+</div>
+
+
+{% endblock%}
