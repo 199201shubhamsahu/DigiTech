@@ -3,5 +3,4 @@
 {% block body %}
 Thanks for contacting us
 
-
 {% endblock %}
